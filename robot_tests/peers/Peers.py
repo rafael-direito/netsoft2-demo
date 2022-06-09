@@ -3,7 +3,7 @@
 # @Date:   02-06-2022 21:48:42
 # @Email:  rdireito@av.it.pt
 # @Last Modified by:   Rafael Direito
-# @Last Modified time: 09-06-2022 11:19:49
+# @Last Modified time: 09-06-2022 17:24:09
 # @Description: 
 
 
@@ -18,7 +18,7 @@ network_info = os.getenv('peers_network_info', "eyJucy1pZC0xIjogeyJ2bmYtaWQtMSI6
 
 host1 = os.getenv('peers_host1_ip', "ns_index=1,vnf_index=2,vdu_index=1,interface_index=1,field=ip-address")
 username1 = os.getenv('peers_host1_username')
-password1 = os.getenv('export')
+password1 = os.getenv('peers_host1_password')
 
 host2 = os.getenv('peers_host2_ip', "ns_index=1,vnf_index=3,vdu_index=1,interface_index=1,field=ip-address")
 username2 = os.getenv('peers_host2_username')
@@ -247,9 +247,9 @@ def peers():
             password=password2
         )
         print("Connection to hosts has been established")
-    except:
-        print("[!] Cannot connect to the SSH Server")
-        exit()
+    except Exception as e:
+        print(f"[!] Cannot connect to the SSH Server - {e}")
+        return False
 
     if not install_peer_dependencies(client1): return False
     if not install_peer_dependencies(client2): return False

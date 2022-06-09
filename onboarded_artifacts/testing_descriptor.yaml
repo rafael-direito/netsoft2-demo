@@ -1,0 +1,83 @@
+# @Author: Rafael Direito
+# @Date:   24-05-2022 10:49:25
+# @Last Modified by:   Rafael Direito
+# @Last Modified time: 09-06-2022 17:08:42
+
+test_info:
+  netapp_id:  <nods.netapp_id>
+  network_service_id: <nods.netapp_id>
+  testbed_id: <nods.testbed_id>
+  description: Prototype Tests for Prototype NetApp
+
+test_phases:
+  setup:
+    deployments:
+      - deployment_id: 1
+        name: xyz_d1
+        descriptor: xyz_vnf1_vnfd
+        id: none 
+        parameters: 
+          - key: ip_dest
+            value: 1.1.1.1 
+      - deployment_id: 2
+        name: xyz_vnf2
+        descriptor: xyz_vnf2_vnfd
+        id: none 
+        parameters:
+          - key: ip_source 
+            value: 2.2.2.2
+
+    testcases:
+      - testcase_id: 1
+        type: developer-defined
+        scope: operational
+        name: encryption
+        description: Developer Defined Test to Validate WG Traffic Encryption
+        parameters:
+          - key: network_info
+            value: <nods.network_info>
+          - key: host1_ip
+            value: ns_index=1,vnf_index=1,vdu_index=1,interface_index=1,field=ip-address
+          - key: host1_username
+            value: ubuntu
+          - key: host1_password
+            value: ubuntu
+          - key: host2_ip
+            value: ns_index=1,vnf_index=2,vdu_index=1,interface_index=1,field=ip-address
+          - key: host2_username
+            value: ubuntu
+          - key: host2_password
+            value: ubuntu
+      - testcase_id: 2
+        type: developer-defined
+        scope: operational
+        name: peers
+        description: Test if it is Possible to Add and Remove WG Peers
+        parameters:
+          - key: network_info
+            value: <nods.network_info>
+          - key: host1_ip
+            value: ns_index=1,vnf_index=2,vdu_index=1,interface_index=1,field=ip-address
+          - key: host1_username
+            value: ubuntu
+          - key: host1_password
+            value: ubuntu
+          - key: host2_ip
+            value: ns_index=1,vnf_index=3,vdu_index=1,interface_index=1,field=ip-address
+          - key: host2_username
+            value: ubuntu
+          - key: host2_password
+            value: ubuntu
+    
+
+
+  execution:
+    - batch_id: 1
+      scope: operational
+      executions:
+      - execution_id: 1
+        name: developer-defined tests
+        testcase_ids: [1,2]     
+    
+
+  
