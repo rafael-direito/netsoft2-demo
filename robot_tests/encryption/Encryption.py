@@ -3,7 +3,7 @@
 # @Date:   02-06-2022 18:36:54
 # @Email:  rdireito@av.it.pt
 # @Last Modified by:   Rafael Direito
-# @Last Modified time: 09-06-2022 11:49:03
+# @Last Modified time: 10-06-2022 10:01:36
 # @Description: 
 
 import paramiko
@@ -12,15 +12,13 @@ import time
 from aux.nods_information_parser import NetworkInformationParser
 
 
-network_info = os.getenv('encryption_network_info', "eyJucy1pZC0xIjogeyJ2bmYtaWQtMSI6IHsidmR1LWlkLTEiOiB7ImludGVyZmFjZS1pZC0xIjogeyJuYW1lIjogImV0aDAiLCAiaXAtYWRkcmVzcyI6ICIxMC4wLjEzLjk5IiwgIm1hYy1hZGRyZXNzIjogImZhOjE2OjNlOjkxOjczOjdhIiwgInR5cGUiOiAiUEFSQVZJUlQifSwgImludGVyZmFjZS1pZC0yIjogeyJuYW1lIjogImV0aDEiLCAiaXAtYWRkcmVzcyI6ICIiLCAibWFjLWFkZHJlc3MiOiAiIiwgInR5cGUiOiAiIn19fSwgInZuZi1pZC0yIjogeyJ2ZHUtaWQtMSI6IHsiaW50ZXJmYWNlLWlkLTEiOiB7Im5hbWUiOiAiZXRoMCIsICJpcC1hZGRyZXNzIjogIjEwLjAuMTMuMTIiLCAibWFjLWFkZHJlc3MiOiAiZmE6MTY6M2U6Y2Q6OWE6M2QiLCAidHlwZSI6ICJQQVJBVklSVCJ9LCAiaW50ZXJmYWNlLWlkLTIiOiB7Im5hbWUiOiAiZXRoMSIsICJpcC1hZGRyZXNzIjogIiIsICJtYWMtYWRkcmVzcyI6ICIiLCAidHlwZSI6ICIifX19LCAidm5mLWlkLTMiOiB7InZkdS1pZC0xIjogeyJpbnRlcmZhY2UtaWQtMSI6IHsibmFtZSI6ICJldGgwIiwgImlwLWFkZHJlc3MiOiAiMTAuMC4xMy4yMjQiLCAibWFjLWFkZHJlc3MiOiAiZmE6MTY6M2U6YzI6OTI6MjciLCAidHlwZSI6ICJQQVJBVklSVCJ9LCAiaW50ZXJmYWNlLWlkLTIiOiB7Im5hbWUiOiAiZXRoMSIsICJpcC1hZGRyZXNzIjogIiIsICJtYWMtYWRkcmVzcyI6ICIiLCAidHlwZSI6ICIifX19fX0=")
-
-host1 = os.getenv('encryption_host1_ip', "ns_index=1,vnf_index=1,vdu_index=1,interface_index=1,field=ip-address")
-username1 = os.getenv('encryption_host1_username')
-password1 = os.getenv('encryption_host1_password')
-
-host2 = os.getenv('encryption_host2_ip', "ns_index=1,vnf_index=2,vdu_index=1,interface_index=1,field=ip-address")
-username2 = os.getenv('encryption_host2_username')
-password2 = os.getenv('encryption_host2_password')
+network_info = os.getenv('encryption_network_info')
+host1 = "ns_index=1,vnf_index=1,vdu_index=1,interface_index=1,field=ip-address"
+username1 = "ubuntu"
+password1 = "ubuntu"
+host2 = "ns_index=1,vnf_index=2,vdu_index=1,interface_index=1,field=ip-address"
+username2 = "ubuntu"
+password2 = "ubuntu"
 
 net_information_parser = NetworkInformationParser(network_info)
 
